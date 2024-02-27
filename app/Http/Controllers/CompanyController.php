@@ -50,8 +50,10 @@ class CompanyController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Company $company): View
+    public function show($id): View
     {
+        $company = Company::query()->findOrFail($id);
+
         return view('companies.show', compact('company'));
     }
 

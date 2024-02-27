@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\{StoreEmployeeRequest, UpdateEmployeeRequest};
-use App\Models\Company;
-use App\Models\Employee;
+use App\Models\{Company, Employee};
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 

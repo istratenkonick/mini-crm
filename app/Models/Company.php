@@ -10,8 +10,16 @@ class Company extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'email', 'logo', 'website'];
+    protected $fillable = [
+        'name',
+        'email',
+        'logo',
+        'website'
+    ];
 
+    /**
+     * @return HasMany
+     */
     public function employees(): HasMany
     {
         return $this->hasMany(Employee::class);

@@ -24,22 +24,19 @@
                             <strong>Phone:</strong> {{ $employee->phone }}
                         </div>
                         <div class="pb-4">
-                            <strong>Company:</strong> {{ $employee->company->name }}
+                            <strong>Company:</strong> <a href="{{ route('companies.show', $employee->company->id) }}" class="text-blue-600 hover:text-blue-800">{{ $employee->company->name }}</a>
                         </div>
                     </div>
 
                     <div class="mt-4 md:mt-0">
-                        <a href="{{ route('employees.edit', $employee->id) }}"
-                           class="ml-4 inline-flex items-center px-4 py-2 bg-gray-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-600 active:bg-gray-700 focus:outline-none focus:border-gray-700 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">
+                        <a href="{{ route('employees.edit', $employee->id) }}" class="ml-4 inline-flex items-center px-4 py-2 bg-gray-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-600 active:bg-gray-700 focus:outline-none focus:border-gray-700 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">
                             Edit
                         </a>
-                        <a href="{{ route('employees.index') }}"
-                           class="ml-4 inline-flex items-center px-4 py-2 bg-gray-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-600 active:bg-gray-700 focus:outline-none focus:border-gray-700 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">
+                        <a href="{{ route('employees.index') }}" class="ml-4 inline-flex items-center px-4 py-2 bg-gray-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-600 active:bg-gray-700 focus:outline-none focus:border-gray-700 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">
                             Back to list
                         </a>
 
-                        <form action="{{ route('employees.destroy', $employee->id) }}" method="POST"
-                              onsubmit="return confirm('Are you sure you want to delete this employee?');">
+                        <form action="{{ route('employees.destroy', $employee->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this employee?');">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="ml-4 inline-flex items-center px-4 py-2 bg-red-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-600 active:bg-red-700 focus:outline-none focus:border-red-700 focus:ring ring-red-300 disabled:opacity-25 transition ease-in-out duration-150">
